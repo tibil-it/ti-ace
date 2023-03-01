@@ -31,5 +31,5 @@ def search(request_data):
     print(search_request_body)
 
     req_body = json.dumps(search_request_body, separators=(',', ':'))
-    requests.post(url=BPP_URI + "/bpp/search", json=json.loads(req_body))
-    return "Ok"
+    response = requests.post(url=BPP_URI + "/bpp/search", json=json.loads(req_body))
+    return response.json()

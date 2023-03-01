@@ -19,17 +19,13 @@ class BppHandler(Resource):
         print("Data for Front end")
         print(input_json)
         if action == "on_search":
-            return "ok"
-            #return requests.post(url=FONTEND_URL + "/on_search", data=json.dumps(input_json))
+            return requests.post(url=FONTEND_URL + "/on_search", json=input_json)
         elif action == "select":
-            pass
-            #return requests.post(url=FONTEND_URL + "/on_select", data=json.dumps(input_json))
+            return requests.post(url=FONTEND_URL + "/on_select", json=input_json)
         elif action == "init":
-            pass
-            #return requests.post(url=FONTEND_URL + "/on_init", data=json.dumps(input_json))
+            return requests.post(url=FONTEND_URL + "/on_init", json=input_json)
         elif action == "confirm":
-            pass
-            #return requests.post(url=FONTEND_URL + "/on_confirm", data=json.dumps(input_json))
+            return requests.post(url=FONTEND_URL + "/on_confirm", json=input_json)
         else:
             ack = InlineResponse200(
                 message=InlineResponse200Message(

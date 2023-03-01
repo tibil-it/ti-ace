@@ -23,6 +23,6 @@ def select(request_data):
     print(select_request_body)
 
     req_body = json.dumps(select_request_body, separators=(',', ':'))
-    requests.post(url=BPP_URI + "/bpp/select", json=json.loads(req_body))
-    return "Ok"
+    response = requests.post(url=BPP_URI + "/bpp/select", json=json.loads(req_body))
+    return response.json()
 
