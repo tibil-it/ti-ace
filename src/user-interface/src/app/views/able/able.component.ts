@@ -11,7 +11,7 @@ export class AbleComponent implements OnInit {
   items = [
     {
       id: '112',
-      imageUrl: 'assets/images/sigmund-Im_cQ6hQo10-unsplash _2.png',
+      imageUrl: 'assets/images/sigmund-Im_cQ6hQo10-unsplash_2.png',
       title: 'Web development bootcamp - Front End',
       description: 'Complete guide to front end development with HTML,CSS,Bootstrap and Javascript',
       type: 'vlog'
