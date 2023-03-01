@@ -12,16 +12,21 @@ const DECLARATIONS = [
   BasicHorizontalCardComponent
 ];
 
+const IMPORTS = [
+  FormsModule
+]
+
 @NgModule({
   declarations: [
     DECLARATIONS
   ],
   imports: [
     CommonModule,
-    FormsModule
+    IMPORTS
   ],
   exports: [
-    DECLARATIONS
+    DECLARATIONS,
+    IMPORTS
   ]
 })
 export class SharedModule { }

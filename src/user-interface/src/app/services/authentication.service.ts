@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
 
+  userDetails: any;
+
   constructor(private readonly router: Router) { }
 
   isUserLoggedIn(): boolean {
@@ -13,9 +15,12 @@ export class AuthenticationService {
   }
 
   getUserDetails(): any {
-    return {
-      name: 'Ram'
-    };
+    return this.userDetails;
+  }
+
+  setUserDetails(userDetails: any): void {
+    this.userDetails = userDetails;
+    this.goToRootPage();
   }
 
   goToRootPage(): void {

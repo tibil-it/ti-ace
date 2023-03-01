@@ -1,15 +1,25 @@
+<h1 class="font-bold text-lg">Cart</h1>
 <div class="grid grid-cols-12">
-    <div class="col-span-6">
-        <div class="grid grid-cols-12" *ngIf="cartItems.length; else noCartItems">
+    <div class="col-span-6" *ngIf="cartItems.length; else noCartItems">
+        <div class="grid grid-cols-12">
             <ng-container *ngFor="let item of cartItems">
-                <div class="col-span-full">
-                    <app-basic-horizontal-card [data]="item"></app-basic-horizontal-card>
+                <div class="col-span-full mb-3">
+                    <app-basic-horizontal-card [data]="item">
+                        <div class="flex justify-between" #cardFooter>
+                            <div class="flex flex-col align-end">
+                                <p class="mt-2 text-sm font-bold text-slate-500">Price: {{ item?.price }}</p>
+                            </div>
+                        </div>
+                    </app-basic-horizontal-card>
                 </div>
             </ng-container>
         </div>
+        <button class="bg-slate-500 p-2">Checkout</button>
     </div>
 </div>
 
 <ng-template #noCartItems>
-    <p class="text-center">No items in the cart</p>
+    <div class="col-span-full">
+        <p class="p-10 text-center">No items in the cart</p>
+    </div>
 </ng-template>

@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthenticationComponent } from './authentication.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CreateUserProfileComponent } from './pages/create-user-profile/create-user-profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -27,9 +24,8 @@ import { FormsModule } from '@angular/forms';
     AuthenticationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    // NgMultiSelectDropDownModule
-
-
+    SharedModule,
+    NgMultiSelectDropDownModule.forRoot()
   ]
 })
 export class AuthenticationModule { }

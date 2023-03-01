@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="grid grid-cols-12 h-screen home-container" style="height: 100vh">
+    <div class="col-span-3 h-full"></div>
+    <div class="col-span-9 p-5 h-full">
+        <div class="flex flex-col h-full justify-evenly items-center">
+            <h1 class="text-center text-2xl font-bold">
+                Login
+            </h1>
+            <form (ngSubmit)="onLogin()">
+                <div class="form-control-cus mb-3">
+                    <label for="">Aadhar Number</label>
+                    <input class="input-control" type="text" [(ngModel)]="aadharNumber" required />
+                </div>
+                <button type="submit" class="search-btn">Login</button>
+            </form>
+            <img class="w-3/6" src="/assets/images/archery_illus.jpg" alt="People interview">
+        </div>
+    </div>
+</div>
