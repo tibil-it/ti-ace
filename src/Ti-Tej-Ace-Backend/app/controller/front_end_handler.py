@@ -20,25 +20,13 @@ class InternalHandler(Resource):
         input_json = request.get_json()
         if action == "search":
 
-            search.apply_async(
-                args=(input_json,),
-                countdown=0.001,
-            )
+            return search(input_json,)
         elif action == "select":
-            select.apply_async(
-                args=(input_json,),
-                countdown=0.001,
-            )
+            return select(input_json)
         elif action == "init":
-            init.apply_async(
-                args=(input_json,),
-                countdown=0.001,
-            )
+            return init(input_json)
         elif action == "confirm":
-            confirm.apply_async(
-                args=(input_json,),
-                countdown=0.001,
-            )
+            return confirm(input_json)
         else:
             ack = InlineResponse200(
                 message=InlineResponse200Message(
