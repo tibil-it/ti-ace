@@ -1,0 +1,41 @@
+.app-header {
+    height: $app-nav-bar-height;
+    box-shadow: 0 1px 3px #aaa;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+}
+
+.app-side-nav {
+    margin-top: calc(1.5rem + #{$app-nav-bar-height});
+    height: calc(100vh - #{$app-nav-bar-height});
+    width: $app-side-nav-width;
+    position: fixed;
+    overflow-y: auto;
+    z-index: 1;
+    background: #fff;
+
+    .menu {
+        .menu-item {
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgba(232, 214, 207, 1);
+            margin: 1px 0;
+
+            &.active {
+                background-color: rgba(170, 217, 205, 1);
+            }
+        }
+    }
+}
+
+.app-content-wrapper {
+    padding-top: $app-nav-bar-height;
+    padding-left: $app-side-nav-width;
+
+    .app-content {
+        padding: 1.5rem;
+    }
+}

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 import { AspireRoutingModule } from './aspire-routing.module';
 import { AspireComponent } from './aspire.component';
 
@@ -11,7 +13,8 @@ import { AspireComponent } from './aspire.component';
   ],
   imports: [
     CommonModule,
-    AspireRoutingModule
+    AspireRoutingModule,
+    SharedModule
   ]
 })
 export class AspireModule { }

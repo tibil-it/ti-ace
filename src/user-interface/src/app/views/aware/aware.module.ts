@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 import { AwareRoutingModule } from './aware-routing.module';
 import { AwareComponent } from './aware.component';
 
@@ -11,7 +13,8 @@ import { AwareComponent } from './aware.component';
   ],
   imports: [
     CommonModule,
-    AwareRoutingModule
+    AwareRoutingModule,
+    SharedModule
   ]
 })
 export class AwareModule { }
