@@ -1,0 +1,15 @@
+<div class="grid grid-cols-12">
+    <div class="col-span-6">
+        <div class="grid grid-cols-12" *ngIf="cartItems.length; else noCartItems">
+            <ng-container *ngFor="let item of cartItems">
+                <div class="col-span-full">
+                    <app-basic-horizontal-card [data]="item"></app-basic-horizontal-card>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #noCartItems>
+    <p class="text-center">No items in the cart</p>
+</ng-template>
