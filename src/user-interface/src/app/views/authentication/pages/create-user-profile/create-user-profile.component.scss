@@ -1,0 +1,61 @@
+input{
+box-sizing: border-box;
+width: 257px;
+height: 40px;
+left: 389px;
+top: 190px;
+
+background: #FFFFFF;
+border: 1px solid #CCD4BF;
+border-radius: 4px;
+}
+
+.userform{
+  display: inline-block;
+}
+
+label{
+  margin-left: 20px;
+}
+
+.skills{
+  border: 1px solid black;
+}
+
+.btnsubmit{
+  width: 76px;
+height: 20px;
+font-family: 'Hind';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #462E25;
+  color: #CCD4BF;
+}
+
+.aadhaaricon{
+  padding-left:35px;
+  padding-right:5px;
+  background: url("../../../../../assets/images/aadhaar.png") no-repeat left;
+  background-size:25px;
+
+}
+.mobileicon{
+  padding-left:35px;
+  padding-right:15px;
+  background: url("../../../../../assets/images/telephone.png") no-repeat left;
+  background-size:25px;
+
+}
+.emailicon{
+  padding-left:35px;
+  padding-right:15px;
+  background: url("../../../../../assets/images/email.png") no-repeat left;
+  background-size:25px;
+
+}
+
+::ng-deep .multiselect-dropdown .dropdown-btn {
+  width: 30%;
+  height:30%;
+}

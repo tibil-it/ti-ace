@@ -40,8 +40,9 @@ class BppProvider(Resource):
             sample_bpp_data.on_search["message"]["catalog"]["providers"][0]["categories"][0]["id"] = category_id
             sample_bpp_data.on_search["message"]["catalog"]["providers"][0]["categories"][0]["parent_category_id"] = category_id
         sample_bpp_data.on_search["message"]["catalog"]["providers"][0]["items"] = items
-        requests.post(url=BAP_URI + "/bap/on_search", json=sample_bpp_data.on_search)
-        return "ok"
+        #return requests.post(url=BAP_URI + "/bap/on_search", json=sample_bpp_data.on_search)
+        return sample_bpp_data.on_search
+        # return "ok"
 
     def on_select(self, input):
 
@@ -53,8 +54,9 @@ class BppProvider(Resource):
         selected_items = self.get_selected_items(req_items)
         sample_bpp_data.on_select["message"]["order"]["provider"]["items"] = selected_items
         sample_bpp_data.on_select["message"]["order"]["provider"]["category_id"] = req_items[0]["category_id"]
-        requests.post(url=BAP_URI + "/bap/on_select", json=sample_bpp_data.on_select)
-        return "ok"
+        #requests.post(url=BAP_URI + "/bap/on_select", json=sample_bpp_data.on_select)
+        return sample_bpp_data.on_select
+        #return "ok"
     
     def on_init(self, input):
 
@@ -67,8 +69,9 @@ class BppProvider(Resource):
         sample_bpp_data.on_init["message"]["order"]["provider"]["items"] = selected_items
         sample_bpp_data.on_init["message"]["order"]["provider"]["category_id"] = req_items[0]["category_id"]
 
-        requests.post(url=BAP_URI + "/bap/on_init", json=sample_bpp_data.on_init)
-        return "ok"
+        # requests.post(url=BAP_URI + "/bap/on_init", json=sample_bpp_data.on_init)
+        # return "ok"
+        return sample_bpp_data.on_init
 
     def on_confirm(self, input):
 
@@ -81,8 +84,9 @@ class BppProvider(Resource):
         sample_bpp_data.on_confirm["message"]["order"]["provider"]["items"] = selected_items
         sample_bpp_data.on_confirm["message"]["order"]["provider"]["category_id"] = req_items[0]["category_id"]
 
-        requests.post(url=BAP_URI + "/bap/on_confirm", json=sample_bpp_data.on_confirm)
-        return "ok"
+        # requests.post(url=BAP_URI + "/bap/on_confirm", json=sample_bpp_data.on_confirm)
+        # return "ok"
+        return sample_bpp_data.on_confirm
 
     def get_selected_items(self, req_items):
         selected_items = []
