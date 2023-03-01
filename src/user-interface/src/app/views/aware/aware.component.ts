@@ -23,14 +23,14 @@ export class AwareComponent implements OnInit {
     },
     {
       id: '114',
-      imageUrl: '/assets/images/sigmund-Im_cQ6hQo10-unsplash _2.png',
+      imageUrl: '/assets/images/sigmund-Im_cQ6hQo10-unsplash_2.png',
       title: 'Web Developer',
       description: 'A web developer is a programmer who develops World Wide  Web applications using a client–server model. The applications typically use HTML, CSS, and JavaScript in the client, and any  general-purpose programming language in the server.',
       type: 'book'
     },
     {
       id: '115',
-      imageUrl: '/assets/images/sigmund-Im_cQ6hQo10-unsplash _2.png',
+      imageUrl: '/assets/images/sigmund-Im_cQ6hQo10-unsplash_2.png',
       title: 'Data Engineer',
       description: 'A data engineer is responsible for collecting, managing, and converting raw data into information that can be interpreted by data scientists and business analysts. Data accessibility is their ultimate goal, which is to enable organizations to utilize data for performance evaluation and optimization.',
       type: 'guidance'
