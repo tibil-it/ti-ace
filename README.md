@@ -147,7 +147,7 @@ https://github.com/tibil-it/ti-ace
  
   Run the command ng serve
 
-  Frontend can be accessed using http://localhost:4000
+  Frontend can be accessed using http://localhost:4200
 
 - Backend setup
 
