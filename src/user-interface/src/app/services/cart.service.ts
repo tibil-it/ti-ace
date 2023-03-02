@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
   cartItems: any[] = [];
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   addCartItem(cartItem: any): void {
     if (this.cartItems.find(item => item.id === cartItem.id)) {
@@ -14,6 +15,10 @@ export class CartService {
     }
 
     this.cartItems.push(cartItem);
+    this.toastr.success('', 'Item added to your cart', {
+      positionClass: 'toast-bottom-center',
+      timeOut: 500
+    });
   }
 
   removeCartItems(): void {

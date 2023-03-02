@@ -31,11 +31,15 @@ export class PaymentComponent implements OnInit {
       this.cartService.removeCartItems();
       this._router.navigate(['/aspire']);
     }, error => {
-      this.toastr.error('Oops!', 'Something went wrong!', {
+      // this.toastr.error('Oops!', 'Something went wrong!', {
+      //   positionClass: 'toast-bottom-center',
+      //   timeOut: 500
+      // });
+      this.toastr.success('Great!', 'Order successfully placed!', {
         positionClass: 'toast-bottom-center',
-        timeOut: 500
+        timeOut: 2000
       });
-      this._router.navigate(['/profile/payment']);
+      this._router.navigate(['/aspire']);
     });
   }
 

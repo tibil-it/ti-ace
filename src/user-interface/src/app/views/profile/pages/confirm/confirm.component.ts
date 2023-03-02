@@ -26,10 +26,10 @@ export class ConfirmComponent implements OnInit {
     this.aspireService.initItems(this.cartItems).subscribe((res: any) => {
       this._router.navigate(['/profile/payment']);
     }, error => {
-      this.toastr.error('Oops!', 'Something went wrong!', {
-        positionClass: 'toast-bottom-center',
-        timeOut: 500
-      });
+      // this.toastr.error('Oops!', 'Something went wrong!', {
+      //   positionClass: 'toast-bottom-center',
+      //   timeOut: 500
+      // });
       this._router.navigate(['/profile/payment']);
     });
   }

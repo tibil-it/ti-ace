@@ -94,6 +94,7 @@ export class AspireComponent implements OnInit, AfterViewInit {
         });
 
         this.searchResults = searchResults;
+      } else {
         this.toastr.error('Oops!', 'Something went wrong!', {
           positionClass: 'toast-bottom-center',
           timeOut: 500
