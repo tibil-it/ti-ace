@@ -113,6 +113,19 @@ Refer this document (https://docs.google.com/document/d/14YXOkMnor6nRJsMjFS4fnm5
 6. Sunbird UCI
 
    Ti Ace modules use Sunbird UCI  as a communication interface, through chatbot and  notification services to the Citizens as well as Providers.
+   
+7. Ti Ace Workflow Orchestration Service
+
+    Ti Ace Workflow Service will manage the journey of the citizen. This will be built using nodejs and python. It will be an OpenAPI based spec driven       set of services.
+
+8. Ti Ace User Apps
+
+   Ti Ace will have citizen facing and provider facing apps. These will be responsive web apps built on Angular and Ionic stack. As needed, based on user    adoption, mobile app versions will be developed using hybrid mobile app approaches.
+
+9. Ti Ace Intelligence Modules 
+
+   Ti Ace will use various ML/AI models built on Python stack for various recommendation, optimization, fitment, translation kind of requirements.
+
 
 ## Product demo	
 
