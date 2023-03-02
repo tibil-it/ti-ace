@@ -11,10 +11,15 @@ import { CartService } from 'src/app/services/cart.service';
 export class HeaderComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faUserCircle = faUserCircle;
+  cartCount = 0;
 
   constructor(public readonly cartService: CartService, private readonly authService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.cartService.cartItems.subscribe(items => {
+      console.log(items);
+      this.cartCount = items.length;
+    })
   }
 
   logout(): void {

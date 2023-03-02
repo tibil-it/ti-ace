@@ -15,8 +15,10 @@ export class ConfirmComponent implements OnInit {
   totalPrice = 0;
 
   constructor(private readonly cartService: CartService, private readonly aspireService: AspireService, private readonly _router: Router, private toastr: ToastrService) {
-    this.cartItems = this.cartService.cartItems;
-    this.cartItems.forEach((cartItem: any) => this.totalPrice += cartItem.price);
+    this.cartService.cartItems.subscribe(cartItems => {
+      this.cartItems = cartItems;
+      this.cartItems.forEach((cartItem: any) => this.totalPrice += cartItem.price);
+    });
   }
 
   ngOnInit(): void {
