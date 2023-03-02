@@ -117,8 +117,7 @@ Refer this document (https://docs.google.com/document/d/14YXOkMnor6nRJsMjFS4fnm5
 ## Product demo	
 
 ## Demo Video
-
-Refer this document (https://docs.google.com/document/d/14YXOkMnor6nRJsMjFS4fnm5r75Px_Hz1_dDLgWeRz0w/edit?usp=sharing)
+(https://drive.google.com/drive/folders/1aRAFh9BiD6uvLBd5z4SC8IUAFpRhB0LX)
 
 ## User guide	
 
