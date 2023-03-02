@@ -1,4 +1,4 @@
-<div class="app-basic-card">
+<div class="app-basic-card flex">
     <div class="card-header">
         <div class="image-wrapper">
             <img class="" [src]="data?.imageUrl" alt="">
@@ -11,8 +11,8 @@
         <div class="description">
             <p class="text-xs">{{data?.description}}</p>
         </div>
-    </div>
-    <div class="card-footer">
-        <ng-content></ng-content>
+        <div class="card-footer">
+            <ng-content></ng-content>
+        </div>
     </div>
 </div>

@@ -5,11 +5,12 @@ import { AspireService } from 'src/app/services/aspire.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-confirm',
+  templateUrl: './confirm.component.html',
+  styleUrls: ['./confirm.component.scss']
 })
-export class CartComponent implements OnInit {
+export class ConfirmComponent implements OnInit {
+
   cartItems: any;
   totalPrice = 0;
 
@@ -21,15 +22,16 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCheckout(): void {
+  onConfirmOrder(): void {
     this.aspireService.initItems(this.cartItems).subscribe((res: any) => {
-      this._router.navigate(['/profile/confirm-order']);
+      this._router.navigate(['/profile/payment']);
     }, error => {
       this.toastr.error('Oops!', 'Something went wrong!', {
         positionClass: 'toast-bottom-center',
         timeOut: 500
       });
-      this._router.navigate(['/profile/confirm-order']);
+      this._router.navigate(['/profile/payment']);
     });
   }
+
 }

@@ -16,6 +16,14 @@
         .title {
             margin-bottom: 5px;
         }
+
+        .description {
+            display: inline-block;
+            height: 3rem;
+            text-overflow: ellipsis;
+            white-space: inherit;
+            overflow: hidden;
+        }
     }
 
     .card-body, .card-footer {

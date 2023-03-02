@@ -1,6 +1,6 @@
 <header class="app-header">
     <div class="flex justify-between items-center py-2 px-5 h-full">
-        <div class="flex items-center h-full">
+        <div class="flex items-center h-full cursor-pointer" routerLink="/aware">
             <img class="h-full" src="/assets/images/bow_and_arrow.png" alt="Bow and arrow">
             <h2 class="ml-1 font-bold">Ti ACE</h2>
         </div>
@@ -10,7 +10,7 @@
             <div class="flex items-center cart-image-wrapper h-full" [attr.data-count]="cartService.cartItems.length" routerLink="/profile/cart">
                 <img class="h-4/6 cursor-pointer" src="/assets/images/cart.png" alt="Cart">
             </div>
-            <img class="ml-4 h-4/6" src="/assets/images/profile.png" alt="User Profile">
+            <img class="ml-4 h-4/6 cursor-pointer" src="/assets/images/profile.png" (click)="logout()" alt="User Profile">
         </div>
     </div>
 </header>

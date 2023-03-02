@@ -2,59 +2,134 @@
   <div class="col-span-full mb-3">
     <app-search-bar (search)="onSearch($event)"></app-search-bar>
   </div>
+  <div class="col-span-full" *ngIf="searchResults">
+    <p class="font-bold mt-10 mb-3">Search Results</p>
+    <div class="grid gap-10 grid-cols-12" *ngIf="searchResults && searchResults.length > 0; else noResultsFound">
+      <ng-container *ngFor="let item of searchResults">
+        <div class="col-span-4">
+          <app-basic-card [data]="item">
+            <div class="flex justify-between" #cardFooter>
+              <div class="flex flex-col">
+                <ng-container [ngSwitch]="item.type">
+                  <div *ngSwitchCase="'vlog'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/vlog.png"
+                      alt="Vlog"
+                    /><span class="ml-2 text-sm font-bold text-slate-500"
+                      >Vlog</span
+                    >
+                  </div>
+                  <div *ngSwitchCase="'podcast'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/podcast.png"
+                      alt="Podcast"
+                    />
+                    <span class="ml-2 text-sm font-bold text-slate-500"
+                      >Podcast</span
+                    >
+                  </div>
+                  <div *ngSwitchCase="'book'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/book.png"
+                      alt="Book"
+                    />
+                    <span class="ml-2 text-sm font-bold text-slate-500"
+                      >Book</span
+                    >
+                  </div>
+                  <div *ngSwitchCase="'guidance'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/guidance.png"
+                      alt="Guidance"
+                    />
+                    <span class="ml-2 text-sm font-bold text-slate-500"
+                      >Guidance</span
+                    >
+                  </div>
+                  <p class="mt-2 text-sm font-bold text-slate-500"
+                      >Price: INR {{ item?.price }}</p>
+                </ng-container>
+              </div>
+              <div class="cursor-pointer" (click)="addCartItem(item)">
+                <img
+                  class="inline h-6"
+                  src="/assets/images/add_to_cart.png"
+                  alt="Add to cart"
+                />
+                <span class="ml-2 text-sm font-bold text-slate-500"
+                    >Add to cart</span>
+              </div>
+            </div>
+          </app-basic-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
   <div class="col-span-full">
+    <p class="font-bold mt-10 mb-3">Showing suggestions based on your interests</p>
     <div class="grid gap-10 grid-cols-12">
       <ng-container *ngFor="let item of items">
         <div class="col-span-4">
           <app-basic-card [data]="item">
             <div class="flex justify-between" #cardFooter>
-              <ng-container [ngSwitch]="item.type">
-                <div *ngSwitchCase="'vlog'">
-                  <img
-                    class="inline h-6"
-                    src="/assets/images/vlog.png"
-                    alt="Vlog"
-                  /><span class="ml-2 text-sm font-bold text-slate-500"
-                    >Vlog</span
-                  >
-                </div>
-                <div *ngSwitchCase="'podcast'">
-                  <img
-                    class="inline h-6"
-                    src="/assets/images/podcast.png"
-                    alt="Podcast"
-                  />
-                  <span class="ml-2 text-sm font-bold text-slate-500"
-                    >Podcast</span
-                  >
-                </div>
-                <div *ngSwitchCase="'book'">
-                  <img
-                    class="inline h-6"
-                    src="/assets/images/book.png"
-                    alt="Book"
-                  />
-                  <span class="ml-2 text-sm font-bold text-slate-500"
-                    >Book</span
-                  >
-                </div>
-                <div *ngSwitchCase="'guidance'">
-                  <img
-                    class="inline h-6"
-                    src="/assets/images/guidance.png"
-                    alt="Guidance"
-                  />
-                  <span class="ml-2 text-sm font-bold text-slate-500"
-                    >Guidance</span
-                  >
-                </div>
-              </ng-container>
-              <img
-                class="inline h-6 cursor-pointer"
-                src="/assets/images/add_to_cart.png"
-                alt="Add to cart"
-                (click)="addCartItem(item)"
-              />
+              <div class="flex flex-col">
+                <ng-container [ngSwitch]="item.type">
+                  <div *ngSwitchCase="'vlog'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/vlog.png"
+                      alt="Vlog"
+                    /><span class="ml-2 text-sm font-bold text-slate-500"
+                      >Vlog</span
+                    >
+                  </div>
+                  <div *ngSwitchCase="'podcast'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/podcast.png"
+                      alt="Podcast"
+                    />
+                    <span class="ml-2 text-sm font-bold text-slate-500"
+                      >Podcast</span
+                    >
+                  </div>
+                  <div *ngSwitchCase="'book'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/book.png"
+                      alt="Book"
+                    />
+                    <span class="ml-2 text-sm font-bold text-slate-500"
+                      >Book</span
+                    >
+                  </div>
+                  <div *ngSwitchCase="'guidance'">
+                    <img
+                      class="inline h-6"
+                      src="/assets/images/guidance.png"
+                      alt="Guidance"
+                    />
+                    <span class="ml-2 text-sm font-bold text-slate-500"
+                      >Guidance</span
+                    >
+                  </div>
+                  <p class="mt-2 text-sm font-bold text-slate-500"
+                      >Price: INR {{ item?.price }}</p>
+                </ng-container>
+              </div>
+              <div class="cursor-pointer" (click)="addCartItem(item)">
+                <img
+                  class="inline h-6"
+                  src="/assets/images/add_to_cart.png"
+                  alt="Add to cart"
+                />
+                <span class="ml-2 text-sm font-bold text-slate-500"
+                    >Add to cart</span>
+              </div>
             </div>
           </app-basic-card>
         </div>
@@ -62,3 +137,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #noResultsFound>
+  <p class="p-10 text-center">No items found</p>
+</ng-template>

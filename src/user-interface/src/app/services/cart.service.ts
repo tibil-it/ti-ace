@@ -15,4 +15,8 @@ export class CartService {
 
     this.cartItems.push(cartItem);
   }
+
+  removeCartItems(): void {
+    this.cartItems = [];
+  }
 }

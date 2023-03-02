@@ -7,6 +7,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  aadharNumber: any;
+  entered = false;
+  otp: any;
 
   constructor(private readonly authenticationService: AuthenticationService) {
     if (this.authenticationService.isUserLoggedIn()) {
@@ -17,4 +20,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogin(): void {
+    this.entered = true;
+  }
+  
+  onEnterOTP(): void {
+    this.authenticationService.setUserDetails({ id: this.aadharNumber });
+    this.entered = true;
+  }
 }
