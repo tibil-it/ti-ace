@@ -1,4 +1,4 @@
-<h1 class="font-bold text-lg">Confirm Order</h1>
+<h1 class="font-bold text-lg">Payment</h1>
 <div class="grid grid-cols-12">
     <div class="col-span-6" *ngIf="cartItems.length; else noCartItems">
         <div class="grid grid-cols-12">
@@ -16,7 +16,7 @@
         </div>
         <div class="mt-3 bg-slate-200 p-3" style="border-left: 2px solid #44b744">
             <p class="font-bold text-slate-500">Total Price: <span class="text-green-500">INR 90</span></p>
-            <button class="bg-[#E7CBA9] p-2" (click)="onConfirmOrder()">Confirm Order</button>
+            <button class="bg-[#E7CBA9] p-2" (click)="onPayment()">Pay</button>
         </div>
     </div>
 </div>

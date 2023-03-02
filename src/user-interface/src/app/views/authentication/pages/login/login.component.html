@@ -5,12 +5,23 @@
             <h1 class="text-center text-2xl font-bold">
                 Login
             </h1>
-            <form (ngSubmit)="onLogin()">
+            <form (ngSubmit)="onLogin()" *ngIf="!entered">
                 <div class="form-control-cus mb-3">
                     <label for="">Aadhar Number</label>
-                    <input class="input-control" type="text" [(ngModel)]="aadharNumber" required />
+                    <input class="input-control" type="number" minlength="12" maxlength="12" [(ngModel)]="aadharNumber" required />
                 </div>
-                <button type="submit" class="search-btn">Login</button>
+                <button type="submit" class="search-btn mb-3">Get OTP</button>
+                <br>
+                <a class="text-underline text-sm text-sky-500 cursor-pointer" routerLink="/auth/register">Don't have an account?</a>
+            </form>
+            <form (ngSubmit)="onEnterOTP()" *ngIf="entered">
+                <div class="form-control-cus mb-3">
+                    <label for="">OTP</label>
+                    <input class="input-control" type="number" maxlength="6" [(ngModel)]="otp" required />
+                </div>
+                <button type="submit" class="search-btn mb-3">Login</button>
+                <br>
+                <a class="text-underline text-sm text-sky-500" routerLink="/auth/register">Don't have an account?</a>
             </form>
             <img class="w-3/6" src="/assets/images/archery_illus.jpg" alt="People interview">
         </div>

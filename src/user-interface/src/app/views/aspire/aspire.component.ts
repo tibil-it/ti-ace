@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AspireService } from 'src/app/services/aspire.service';
 import { CartService } from 'src/app/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-aspire',
   templateUrl: './aspire.component.html',
   styleUrls: ['./aspire.component.scss']
 })
-export class AspireComponent implements OnInit {
+export class AspireComponent implements OnInit, AfterViewInit {
   items = [
     {
       id: '112',
@@ -58,11 +59,15 @@ export class AspireComponent implements OnInit {
       price: '200'
     }
   ];
-  searchResults: any[] = [];
+  searchResults!: any[];
 
-  constructor(private readonly _cartService: CartService, private readonly aspireService: AspireService) { }
+  constructor(private readonly _cartService: CartService, private readonly aspireService: AspireService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    window.scrollTo(0, 0);
   }
   
   addCartItem(cartItem: any): void {
@@ -72,23 +77,34 @@ export class AspireComponent implements OnInit {
   onSearch(searchQuery: string): void {
     this.aspireService.getItems(searchQuery).subscribe(res => {
       let searchResults: any[] = [];
-      res.message.catalog.providers.forEach((provider: any) => {
-        searchResults = [...searchResults, ...provider.items.map((item: any) => {
-          return {
-            id: item.id,
-            imageUrl: '/assets/images/vlog_img.jpg',
-            title: item.descriptor.name,
-            description: item.descriptor.long_desc,
-            type: item.tags.content_type,
-            currency: item.price.currency,
-            price: item.price.value
-          }
-        })];        
-      });
 
-      this.searchResults = searchResults;
+      if (typeof res.message === 'object') {
+        res.message.catalog.providers.forEach((provider: any) => {
+          searchResults = [...searchResults, ...provider.items.map((item: any) => {
+            return {
+              id: item.id,
+              imageUrl: '/assets/images/vlog_img.jpg',
+              title: item.descriptor.name,
+              description: item.descriptor.long_desc,
+              type: item.tags.content_type,
+              currency: item.price.currency,
+              price: item.price.value
+            }
+          })];        
+        });
+
+        this.searchResults = searchResults;
+        this.toastr.error('Oops!', 'Something went wrong!', {
+          positionClass: 'toast-bottom-center',
+          timeOut: 500
+        });
+      }
     }, error => {
       this.searchResults = [];
+      this.toastr.error('Oops!', 'Something went wrong!',  {
+        positionClass: 'toast-bottom-center',
+        timeOut: 500
+      });
     });
   }
 

@@ -2,9 +2,9 @@
   <div class="col-span-full mb-3">
     <app-search-bar (search)="onSearch($event)"></app-search-bar>
   </div>
-  <div class="col-span-full" *ngIf="searchResults && searchResults.length > 0">
+  <div class="col-span-full" *ngIf="searchResults">
     <p class="font-bold mt-10 mb-3">Search Results</p>
-    <div class="grid gap-10 grid-cols-12">
+    <div class="grid gap-10 grid-cols-12" *ngIf="searchResults && searchResults.length > 0; else noResultsFound">
       <ng-container *ngFor="let item of searchResults">
         <div class="col-span-4">
           <app-basic-card [data]="item">
@@ -51,7 +51,7 @@
                     >
                   </div>
                   <p class="mt-2 text-sm font-bold text-slate-500"
-                      >Price: {{ item?.price }}</p>
+                      >Price: INR {{ item?.price }}</p>
                 </ng-container>
               </div>
               <div class="cursor-pointer" (click)="addCartItem(item)">
@@ -118,7 +118,7 @@
                     >
                   </div>
                   <p class="mt-2 text-sm font-bold text-slate-500"
-                      >Price: {{ item?.price }}</p>
+                      >Price: INR {{ item?.price }}</p>
                 </ng-container>
               </div>
               <div class="cursor-pointer" (click)="addCartItem(item)">
@@ -137,3 +137,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #noResultsFound>
+  <p class="p-10 text-center">No items found</p>
+</ng-template>

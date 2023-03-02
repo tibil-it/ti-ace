@@ -10,7 +10,7 @@
             <div class="flex items-center cart-image-wrapper h-full" [attr.data-count]="cartService.cartItems.length" routerLink="/profile/cart">
                 <img class="h-4/6 cursor-pointer" src="/assets/images/cart.png" alt="Cart">
             </div>
-            <img class="ml-4 h-4/6" src="/assets/images/profile.png" alt="User Profile">
+            <img class="ml-4 h-4/6 cursor-pointer" src="/assets/images/profile.png" (click)="logout()" alt="User Profile">
         </div>
     </div>
 </header>

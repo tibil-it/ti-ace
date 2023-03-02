@@ -24,45 +24,64 @@ export class AspireService {
     return this.http.post<any>(`${environment.apiUrl}/search`, data);
   }
 
-  selectItems(searchQuery: string): Observable<any> {
+  selectItems(cartItems: any): Observable<any> {
     let data = {
-      "intent": {
-          "item": {
-              "descriptor": {
-                  "name": searchQuery
+      "order": {
+          "items": cartItems.map((item: any) => { id: item.id }),
+          "fulfillments": [
+              {
+                  "customer": {
+                      "person": {
+                          "name": "John Doe"
+                      }
+                  }
               }
-          }
+          ]
       }
     };
 
-    return this.http.post<any>(`${environment.apiUrl}/search`, data);
+    return this.http.post<any>(`${environment.apiUrl}/select`, data);
   }
 
-  initItems(searchQuery: string): Observable<any> {
+  initItems(cartItems: any): Observable<any> {
     let data = {
-      "intent": {
-          "item": {
-              "descriptor": {
-                  "name": searchQuery
+      "order": {
+          "items": cartItems.map((item: any) => {
+            return { id: item.id };
+          }),
+          "fulfillments": [
+              {
+                  "customer": {
+                      "person": {
+                          "name": "John Doe"
+                      }
+                  }
               }
-          }
+          ]
       }
     };
 
-    return this.http.post<any>(`${environment.apiUrl}/search`, data);
+    return this.http.post<any>(`${environment.apiUrl}/init`, data);
   }
 
-  iniItems(searchQuery: string): Observable<any> {
+  confirmItems(cartItems: any): Observable<any> {
     let data = {
-      "intent": {
-          "item": {
-              "descriptor": {
-                  "name": searchQuery
+      "order": {
+          "items": cartItems.map((item: any) => {
+            return { id: item.id };
+          }),
+          "fulfillments": [
+              {
+                  "customer": {
+                      "person": {
+                          "name": "John Doe"
+                      }
+                  }
               }
-          }
+          ]
       }
     };
 
-    return this.http.post<any>(`${environment.apiUrl}/search`, data);
+    return this.http.post<any>(`${environment.apiUrl}/confirm`, data);
   }
 }

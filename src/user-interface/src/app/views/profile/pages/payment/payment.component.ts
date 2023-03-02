@@ -5,11 +5,12 @@ import { AspireService } from 'src/app/services/aspire.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.scss']
 })
-export class CartComponent implements OnInit {
+export class PaymentComponent implements OnInit {
+
   cartItems: any;
   totalPrice = 0;
 
@@ -21,15 +22,21 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCheckout(): void {
+  onPayment(): void {
     this.aspireService.initItems(this.cartItems).subscribe((res: any) => {
-      this._router.navigate(['/profile/confirm-order']);
+      this.toastr.error('Great!', 'Order successfully placed!', {
+        positionClass: 'toast-bottom-center',
+        timeOut: 2000
+      });
+      this.cartService.removeCartItems();
+      this._router.navigate(['/aspire']);
     }, error => {
       this.toastr.error('Oops!', 'Something went wrong!', {
         positionClass: 'toast-bottom-center',
         timeOut: 500
       });
-      this._router.navigate(['/profile/confirm-order']);
+      this._router.navigate(['/profile/payment']);
     });
   }
+
 }

@@ -1,1 +1,26 @@
-<p>register works!</p>
+<div class="grid grid-cols-12 h-screen home-container" style="height: 100vh">
+    <div class="col-span-3 h-full"></div>
+    <div class="col-span-9 p-5 h-full">
+        <div class="flex flex-col h-full justify-evenly items-center">
+            <h1 class="text-center text-2xl font-bold">
+                Register
+            </h1>
+            <form (ngSubmit)="onRegister()" *ngIf="!entered">
+                <div class="form-control-cus mb-3">
+                    <label for="">Aadhar Number</label>
+                    <input class="input-control" type="number" minlength="12" maxlength="12" [(ngModel)]="aadharNumber" required />
+                </div>
+                <button type="submit" class="search-btn mb-3">Get OTP</button>
+                <br>
+            </form>
+            <form (ngSubmit)="onEnterOTP()" *ngIf="entered">
+                <div class="form-control-cus mb-3">
+                    <label for="">OTP</label>
+                    <input class="input-control" type="number" maxlength="6" [(ngModel)]="otp" required />
+                </div>
+                <button type="submit" class="search-btn mb-3">Register</button>
+            </form>
+            <img class="w-3/6" src="/assets/images/8961433_3996891.jpg" alt="People interview">
+        </div>
+    </div>
+</div>
